@@ -3,4 +3,9 @@ new Vue({
   data: {
     titulo: "Usando o VueJs",
   },
+  methods: {
+    alterarTitulo(event) {
+      this.titulo = event.target.value;
+    },
+  },
 });
