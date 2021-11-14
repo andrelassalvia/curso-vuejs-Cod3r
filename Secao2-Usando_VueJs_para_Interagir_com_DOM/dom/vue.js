@@ -4,9 +4,8 @@ new Vue({
     titulo: "Usando o VueJs",
   },
   methods: {
-    alterarTitulo(event) {
-      console.log(event);
-      this.titulo = event.target.value;
+    saudacao() {
+      return "Boa noite";
     },
   },
 });
