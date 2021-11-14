@@ -5,7 +5,7 @@ new Vue({
   },
   methods: {
     saudacao() {
-      return "Boa noite";
+      return this.titulo;
     },
   },
 });
