@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Eventos 4</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{contador}}</p>
+      <!-- Quando passamos um parametro, se quisermos capturar o evento precisamos usar o $event -->
+      <!-- Quando nao passamos o parametro, o evento e capturado automaticamente. -->
+      <button v-on:click="somar1(5, $event)">Somar 1</button>
+      <div>
+        <p v-on:mousemove="atualizarXY">
+          Mouse - {{x}} e {{y}}
+          <span v-on:mousemove.stop="">PARAR AQUI!!!</span>
+        </p>
+        <a v-on:click.prevent="" href="http://google.com">Google</a>
+      </div>
+    </div>
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          contador: 0,
+          x: 0,
+          y: 0,
+        },
+        methods: {
+          somar1(n, event) {
+            console.log(n, event);
+            this.contador += n;
+            return this.contador;
+          },
+          atualizarXY(e) {
+            console.log(e);
+            this.x = e.x;
+            this.y = e.y;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
+
+<!-- 
+  EVENT MODIFIERS - Documentacao VueJS
+.stop
+.prevent
+.capture
+.self
+.once
+.passive
+ -->
