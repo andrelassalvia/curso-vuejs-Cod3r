@@ -3,6 +3,7 @@ new Vue({
   data: {
     titulo: "Usando o VueJs",
     link: "http://google.com",
+    linkHtml: '<a href="http://google.com">Google</a>',
   },
   methods: {
     saudacao() {
