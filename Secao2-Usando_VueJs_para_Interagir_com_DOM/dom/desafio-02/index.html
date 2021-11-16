@@ -17,15 +17,15 @@
     <!-- 2) Escute o evento "keyup" e armazene "valor" na propriedade
         data (dica: event.target.value) -->
     <div>
-      <input type="text" v-on:keyup="valorKey($event)" />
+      <input type="text" v-on:keyup="valor = $event.target.value" />
       <p>{{valor}}</p>
     </div>
 
     <!-- 3) Ajuste o exemplo 2 para disparar o evento "keydown" somente
         quando a tecla for ENTER -->
     <div>
-      <input type="text" v-on:keydown.enter="enter($event)" />
-      <p>{{valorEnter}}</p>
+      <input type="text" v-on:keydown.enter="valor = $event.target.value" />
+      <p>{{valor}}</p>
     </div>
   </div>
   <script src="app.js"></script>
