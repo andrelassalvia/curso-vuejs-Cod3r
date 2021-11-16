@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Propriedades Reativas V2</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <button v-on:click="aumentar">Aumentar</button>
+      <button v-on:click="contador2++">Aumentar2</button>
+      <button v-on:click="diminuir">Diminuir</button>
+      <p>Contador: {{contador}} | {{contador2}}</p>
+      <!-- <p>Resultado: {{resultado()}}</p> -->
+      <p>Resultado: {{resultado}}</p>
+    </div>
+  </body>
+
+  <script>
+    new Vue({
+      el: "#app",
+      data: {
+        contador: 0,
+        contador2: 0,
+      },
+      computed: {
+        // so e chamado quando de fato for necessario calcular o valor
+        resultado() {
+          return this.contador > 5 ? "Maior que 5" : "Menor que 5";
+        },
+      },
+      methods: {
+        aumentar() {
+          this.contador++;
+        },
+        diminuir() {
+          this.contador--;
+        },
+        // resultado() {
+        //   return this.contador > 5 ? "Maior que 5" : "Menor que 5";
+        // },
+      },
+    });
+  </script>
+</html>
