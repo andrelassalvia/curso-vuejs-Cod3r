@@ -30,11 +30,12 @@
         },
         computed: {
           resultado() {
-            return this.valor != 37 ? this.valor : "Valor igual";
+            return this.valor != 37 ? "Valor diferente" : "Valor igual";
           },
         },
+        // a alteracao para 37 dispara uma mudanca que chama o computed que movimenta o watch e inicia a contagem de 5 segundos.
         watch: {
-          valor(n, o) {
+          resultado() {
             setTimeout(() => {
               this.valor = 0;
             }, 5000);
