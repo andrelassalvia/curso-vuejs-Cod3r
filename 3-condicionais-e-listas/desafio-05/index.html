@@ -51,7 +51,7 @@
       <h2>#04</h2>
       <ul>
         <li v-for="(v, k) in aluno">
-          <span v-if="k!='notas'">{{k}}: {{v}}</span>
+          <span v-if="!Array.isArray(v)"> {{v}}</span>
           <div v-else>
             <ul>
               <li style="list-style: none" v-for="val in v">Notas: {{val}}</li>
