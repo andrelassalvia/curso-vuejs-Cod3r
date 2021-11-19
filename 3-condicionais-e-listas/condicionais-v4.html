@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue"></script>
+    <title>Condicionais 4</title>
+  </head>
+  <body>
+    <div id="app">
+      <template v-if="logado">
+        <p>Usuario logado: {{nome}}</p>
+        <p>Perfil Administrador</p>
+      </template>
+      <p v-else-if="anonimo">Navegando com anonimo</p>
+      <p v-else>Usuario nao logado</p>
+      <button @click="logado = !logado">{{logado ? 'Sair' : 'Entrar'}}</button>
+      <input type="checkbox" v-model="anonimo" />
+      <hr />
+      <!-- V-if retira as tags da renderizacao. Se inspecionarmos veremos que as tags html sao suprimidas -->
+      <!-- O v-show somente altera a formatacao css aplicando um display none. Nao some com as tags -->
+      <!-- v-if e mais importante para o que queremos esconder -->
+      <!-- v-show nao esconde mas e mais leve para renderizar -->
+      <footer v-show="logado">Desenvolvido para voce!</footer>
+      <footer v-show="!logado">
+        Desenvolvido para voce que nao esta logado!
+      </footer>
+    </div>
+
+    <script>
+      new Vue({
+        el: "#app",
+        data: {
+          nome: "Maria",
+          logado: false,
+          anonimo: true,
+        },
+      });
+    </script>
+  </body>
+</html>
