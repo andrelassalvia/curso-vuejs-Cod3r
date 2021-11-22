@@ -46,3 +46,19 @@ h1 {
 .life-bar .life.danger {
   background-color: red;
 }
+
+/*Area resultado*/
+.result {
+  display: flex;
+  justify-content: center;
+  font-size: 1.3;
+  font-weight: 600;
+}
+
+.result .win {
+  color: green;
+}
+
+.result .lose {
+  color: red;
+}
