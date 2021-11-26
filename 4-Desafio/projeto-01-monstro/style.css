@@ -62,3 +62,74 @@ h1 {
 .result .lose {
   color: red;
 }
+
+/*Area botoes*/
+
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
+  border-radius: 0.5em;
+  font-size: 16px;
+  padding: 00.5em;
+}
+
+.btn-ataque {
+  background-color: rgb(233, 38, 38);
+  color: aliceblue;
+  font-weight: 300;
+  align-items: center;
+}
+.btn-especial {
+  background-color: rgb(233, 197, 38);
+  color: rgb(26, 27, 27);
+  font-weight: 300;
+  align-items: center;
+}
+.btn-curar {
+  background-color: rgb(11, 145, 33);
+  color: rgb(227, 233, 233);
+  font-weight: 300;
+  align-items: center;
+}
+.btn-desistir {
+  background-color: rgb(120, 128, 122);
+  color: rgb(227, 233, 233);
+  font-weight: 300;
+  align-items: center;
+}
+.btn-iniciar {
+  background-color: rgb(78, 62, 221);
+  color: rgb(227, 233, 233);
+  font-weight: 300;
+  align-items: center;
+}
+
+.logs ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.logs ul li {
+  display: flex;
+  justify-content: center;
+  margin: 4px 0px;
+  padding: 3px 0px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+.player {
+  background-color: #4253afaa;
+  color: #fff;
+}
+
+.monster {
+  background-color: #e51c23aa;
+  color: #fff;
+}

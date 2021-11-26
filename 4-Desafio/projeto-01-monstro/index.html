@@ -14,23 +14,43 @@
                 <div class="life-bar">
                     <div class="life" :class="{danger: playerLife < 20}" :style="{width: playerLife +'%'}"></div>
                 </div>
-                <div>{{playerLife}}%</div>
+                <div >{{playerLife}}%</div>
             </div>
             <div class="score">
                 <h1>Monstro</h1>
                 <div class="life-bar">
                     <div class="life" :class="{danger: monsterLife < 20}" :style="{width: monsterLife + '%'}"></div>
                 </div>
-                <div>{{monsterLife}}%</div>
+                <div >{{monsterLife}}%</div>
             </div>
         </div>
         <div v-if="hasResult" class="panel result">
-            <div v-if="monsterLife === 0" class="win">Voce ganhou :)</div>
-            <div v-if="playerLife === 0" class="lose">Voce perdeu :(</div>
+            <div v-if="monsterLife == 0" class="win">Voce ganhou :)</div>
+            <div v-if="playerLife == 0" class="lose">Voce perdeu  :( </div>
         </div>
-        <div class="panel buttons">3</div>
-        <div class="panel logs">4</div>
+        <div class="panel buttons">
+            <div class="btn">
+                <template v-if="running">
+                    <button  @click="attack(false)" class="btn btn-ataque">ATAQUE</button>
+                    <button  @click="attack(true)" class="btn btn-especial">ATAQUE ESPECIAL</button>
+                    <button  @click="healAndHurt" class="btn btn-curar">CURAR</button>
+                    <button  @click="giveup" class="btn btn-desistir">DESISTIR</button>
+                </template>
+                <button v-if="!running" @click="begin" class="btn btn-iniciar">INICIAR</button>
+                
+            </div>
+        </div>
+        <div 
+            class="panel logs" v-if="logs.length">
+            <ul>
+                <li v-for="log in logs"
+                    :class="log.cls"
+                    class="log">{{ log.text }}
+                </li>
+            </ul>
+        </div>
     </div>
-    <script src="app.js"></script>
+    
+    <script src="app1.js"></script>
 </body>
 </html>
