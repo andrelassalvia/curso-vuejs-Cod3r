@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue"></script>
+    <title>Meu Vue</title>
+  </head>
+  <body>
+    <div id="app">{{nome}} {{sobrenome}} {{1 + 1}}</div>
+
+    <script>
+      function MeuVue(params) {
+        this.$el = document.querySelector(params.el);
+        this.$data = params.data;
+
+        for (let atr in this.$data) {
+          Object.defineProperty(this, atr, {
+            get: () => {
+              return this.$data[atr];
+            },
+            set: (value) => (this.$data[atr] = value),
+          });
+        }
+
+        // interpolar
+        const regex = /\{\{([\s\w+]*)\}\}/g;
+        this.$el.innerHTML = this.$el.innerHTML.replace(regex, (match, $1) => {
+          const value = this[$1.trim()];
+          return value ? value : eval($1);
+        });
+      }
+
+      const vm = new MeuVue({
+        el: "#app",
+        data: {
+          nome: "Maria",
+          sobrenome: "Silva",
+        },
+      });
+
+      console.log(vm.nome);
+    </script>
+  </body>
+</html>
