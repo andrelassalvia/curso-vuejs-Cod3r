@@ -12,25 +12,25 @@ new Vue({
       this.hurt("playerLife", 7, 12, false, "Monstro", "Jogador", "monster");
     },
 
-    registerLog(text, cls) {
-      this.logs.unshift({ text, cls });
-    },
-
     hurt(player, min, max, especial, source, target, cls) {
       const plus = especial ? 3 : 0;
       const hurt = this.getRandom(min + plus, max + plus);
       this[player] = Math.max(this[player] - hurt, 0);
       this.registerLog(`${source} atingiu ${target} com ${hurt}`, cls);
     },
+
     getRandom(min, max) {
       const value = Math.random() * (max - min) + min;
-      console.table(value);
       return Math.round(value);
     },
 
     healAndHurt() {
       this.heal(10, 15);
       this.hurt("playerLife", 7, 12, false, "Monstro", "Jogador", "monster");
+    },
+
+    registerLog(text, cls) {
+      this.logs.unshift({ text, cls });
     },
 
     heal(min, max) {
